@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "rating": {
+      "number": 450,
+      "avg": 4.5,
+      "max": 5.0
+    },
+    "n_comments": 150,
+    "name": "La Tagliatella",
+    "type": "Italian",
+    "tables_available": 15,
+    "location": "C/ Notifixis"
+  },
+  {
+    "id": 2,
+    "rating": {
+      "number": 450,
+      "avg": 4.5,
+      "max": 5.0
+    },
+    "n_comments": 150,
+    "name": "La Tagliatella",
+    "type": "Italian",
+    "tables_available": 15,
+    "location": "C/ Notifixis"
+  },
+  {
+    "id": 3,
+    "rating": {
+      "number": 450,
+      "avg": 4.5,
+      "max": 5.0
+    },
+    "n_comments": 150,
+    "name": "La Tagliatella",
+    "type": "Italian",
+    "tables_available": 15,
+    "location": "C/ Notifixis"
+  },
+  {
+    "id": 4,
+    "rating": {
+      "number": 450,
+      "avg": 4.5,
+      "max": 5.0
+    },
+    "n_comments": 150,
+    "name": "La Tagliatella",
+    "type": "Italian",
+    "tables_available": 15,
+    "location": "C/ Notifixis"
+  },
+  {
+    "id": 5,
+    "rating": {
+      "number": 450,
+      "avg": 4.5,
+      "max": 5.0
+    },
+    "n_comments": 150,
+    "name": "La Tagliatella",
+    "type": "Italian",
+    "tables_available": 15,
+    "location": "C/ Notifixis"
+  },
+  {
+    "id": 6,
+    "rating": {
+      "number": 450,
+      "avg": 4.5,
+      "max": 5.0
+    },
+    "n_comments": 150,
+    "name": "La Tagliatella",
+    "type": "Italian",
+    "tables_available": 15,
+    "location": "C/ Notifixis"
+  },
+  {
+    "id": 7,
+    "rating": {
+      "number": 450,
+      "avg": 4.5,
+      "max": 5.0
+    },
+    "n_comments": 150,
+    "name": "La Tagliatella",
+    "type": "Italian",
+    "tables_available": 15,
+    "location": "C/ Notifixis"
+  },
+  {
+    "id": 8,
+    "rating": {
+      "number": 450,
+      "avg": 4.5,
+      "max": 5.0
+    },
+    "n_comments": 150,
+    "name": "La Tagliatella",
+    "type": "Italian",
+    "tables_available": 15,
+    "location": "C/ Notifixis"
+  }
+]
