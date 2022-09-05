@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   createDrawerNavigator,
   DrawerContentComponentProps,
@@ -13,8 +12,9 @@ import { Profile } from "../components/Navigation/Profile";
 import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { BottomTabNavigator } from "./BottomTabNavigator";
-import Ionicons from '@expo/vector-icons/Ionicons'
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { MainScreen } from "../components/Navigation/Main";
+import { Button, Icon } from "@rneui/themed";
 
 const Drawer = createDrawerNavigator();
 
@@ -23,10 +23,18 @@ export const LateralMenu = () => {
 
   return (
     <Drawer.Navigator
-      screenOptions={{ drawerType: width >= 768 ? "permanent" : "front" }}
+      screenOptions={{
+        drawerType: width >= 768 ? "permanent" : "front",
+        headerTitle: "",
+        headerRight: RightMenuComponent,
+      }}
       drawerContent={(props) => <LateralMenuContent {...props} />}
+      initialRouteName="BottomTabNavigator"
     >
-      <Drawer.Screen name="BottomTabNavigator" component={BottomTabNavigator}></Drawer.Screen>
+      <Drawer.Screen
+        name="BottomTabNavigator"
+        component={BottomTabNavigator}
+      ></Drawer.Screen>
       <Drawer.Screen name="Bookings" component={Bookings}></Drawer.Screen>
       <Drawer.Screen
         name="Notifications"
@@ -35,6 +43,27 @@ export const LateralMenu = () => {
       <Drawer.Screen name="Settings" component={Settings}></Drawer.Screen>
       <Drawer.Screen name="Profile" component={Profile}></Drawer.Screen>
     </Drawer.Navigator>
+  );
+};
+
+const RightMenuComponent = () => {
+  return (
+    <Button
+      icon={
+        <>
+          <Icon name="search" color="#020202" />
+          {/* <Icon name="person" color="#020202" /> */}
+        </>
+      }
+      buttonStyle={{
+        backgroundColor: "transparent",
+        borderRadius: 12,
+        marginLeft: 0,
+        marginRight: 15,
+        marginBottom: 0,
+      }}
+      title=""
+    />
   );
 };
 
@@ -58,8 +87,8 @@ const LateralMenuContent = ({ navigation }: DrawerContentComponentProps) => {
           }}
           onPress={() => navigation.navigate("BottomTabNavigator")}
         >
-          <Ionicons name="compass-outline" size={26} color="black"/>
-          <Text style= {styles.lateralMenuText}>Main</Text>
+          <Ionicons name="compass-outline" size={26} color="black" />
+          <Text style={styles.lateralMenuText}>Main</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={{
@@ -68,8 +97,8 @@ const LateralMenuContent = ({ navigation }: DrawerContentComponentProps) => {
           }}
           onPress={() => navigation.navigate("Bookings")}
         >
-          <Ionicons name="calendar-outline" size={26} color="black"/>
-          <Text style= {styles.lateralMenuText}>Bookings</Text>
+          <Ionicons name="calendar-outline" size={26} color="black" />
+          <Text style={styles.lateralMenuText}>Bookings</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -79,8 +108,8 @@ const LateralMenuContent = ({ navigation }: DrawerContentComponentProps) => {
           }}
           onPress={() => navigation.navigate("Notifications")}
         >
-          <Ionicons name="chatbox-ellipses-outline" size={26} color="black"/>
-          <Text style= {styles.lateralMenuText}>Notifications</Text>
+          <Ionicons name="chatbox-ellipses-outline" size={26} color="black" />
+          <Text style={styles.lateralMenuText}>Notifications</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -90,8 +119,8 @@ const LateralMenuContent = ({ navigation }: DrawerContentComponentProps) => {
           }}
           onPress={() => navigation.navigate("Settings")}
         >
-          <Ionicons name="settings-outline" size={26} color="black"/>
-          <Text style= {styles.lateralMenuText}>Settings</Text>
+          <Ionicons name="settings-outline" size={26} color="black" />
+          <Text style={styles.lateralMenuText}>Settings</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -101,8 +130,8 @@ const LateralMenuContent = ({ navigation }: DrawerContentComponentProps) => {
           }}
           onPress={() => navigation.navigate("Profile")}
         >
-          <Ionicons name="person-circle-outline" size={26} color="black"/>
-          <Text style= {styles.lateralMenuText}>Profile</Text>
+          <Ionicons name="person-circle-outline" size={26} color="black" />
+          <Text style={styles.lateralMenuText}>Profile</Text>
         </TouchableOpacity>
       </View>
     </DrawerContentScrollView>
@@ -122,15 +151,15 @@ const styles = StyleSheet.create({
   },
   menuBtn: {
     marginVertical: 10,
-    alignItems: 'center'
+    alignItems: "center",
   },
   menuContainer: {
     marginVertical: 30,
     marginHorizontal: 50,
   },
   lateralMenuText: {
-    marginLeft: 15
-  }
+    marginLeft: 15,
+  },
 });
 
 export default LateralMenu;

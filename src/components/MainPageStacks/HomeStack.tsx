@@ -7,7 +7,7 @@ export const HomeStack = () => {
   return (
     <ScrollView>
       <View>
-        {RestaurantsList.map((restaurant) => <RestaurantCard {...restaurant}/>)}
+        {RestaurantsList.map((restaurant) => <RestaurantCard key = {restaurant.id} {...restaurant}/>)}
       </View>
     </ScrollView>
   );

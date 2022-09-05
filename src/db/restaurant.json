@@ -20,7 +20,7 @@
       "max": 5.0
     },
     "n_comments": 150,
-    "name": "La Tagliatella",
+    "name": "Belle Buon",
     "type": "Italian",
     "tables_available": 15,
     "location": "C/ Notifixis"
@@ -33,7 +33,7 @@
       "max": 5.0
     },
     "n_comments": 150,
-    "name": "La Tagliatella",
+    "name": "Burger king",
     "type": "Italian",
     "tables_available": 15,
     "location": "C/ Notifixis"
@@ -46,7 +46,7 @@
       "max": 5.0
     },
     "n_comments": 150,
-    "name": "La Tagliatella",
+    "name": "McDonald's",
     "type": "Italian",
     "tables_available": 15,
     "location": "C/ Notifixis"
@@ -59,7 +59,7 @@
       "max": 5.0
     },
     "n_comments": 150,
-    "name": "La Tagliatella",
+    "name": "Rincon de Pepe",
     "type": "Italian",
     "tables_available": 15,
     "location": "C/ Notifixis"
