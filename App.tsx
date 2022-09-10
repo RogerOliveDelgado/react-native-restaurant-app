@@ -1,14 +1,16 @@
-import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
 
-import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import Home from "./src/Home";
-import LateralMenu from './src/navigation/LateralMenu';
+import LateralMenu from "./src/navigation/LateralMenu";
+import { Provider } from "react-redux";
+import store from './src/store/store'
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <LateralMenu></LateralMenu>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <LateralMenu></LateralMenu>
+      </NavigationContainer>
+    </Provider>
   );
 }

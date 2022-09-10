@@ -3,29 +3,30 @@ import { View, ScrollView, Image } from "react-native";
 import { Text, Card, Button } from "@rneui/themed";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Restaurant } from "../../interfaces/RestaurantEntity";
-import {styles} from './RestaurantCardStyles'
+import { styles } from "./RestaurantCardStyles";
+import { useAppDispatch } from "../../store/hooks";
+import { favouriteCartActions } from "../../store/slices/favouriteCart-slice";
 
 type CardsComponentsProps = {};
 
 const isFavourite = true;
 
-const RestaurantCard: React.FunctionComponent<Restaurant> = ({
-  id,
-  rating,
-  name,
-  type,
-  tables_available,
-  location,
-}: Restaurant) => {
+const RestaurantCard: React.FunctionComponent<Restaurant> = (
+  restaurant: Restaurant
+) => {
+  const { id, rating, name, type, tables_available, location } = restaurant;
+  const dispatch = useAppDispatch();
+  const addToFavourites = () => {
+    //need to redefine dispatch type
+    dispatch(favouriteCartActions.addToCart({ item: restaurant }));
+  };
+
   return (
     <>
       <ScrollView>
         <View style={styles.container}>
           <Card>
             <Card.Title style={styles.title}>
-              {/* <View>
-                <Text>Title Container</Text>
-              </View> */}
               <View style={styles.titleContainer}>
                 <Text style={styles.titleText}>{name}</Text>
                 <Ionicons
@@ -49,6 +50,7 @@ const RestaurantCard: React.FunctionComponent<Restaurant> = ({
             </Text>
             <View style={styles.buttonsFlex}>
               <Button
+                onPress={addToFavourites}
                 icon={<Ionicons name="heart" color="black" size={26} />}
                 buttonStyle={{
                   backgroundColor: isFavourite ? "#eb1313cb" : "transparent",
