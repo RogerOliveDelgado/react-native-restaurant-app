@@ -10,8 +10,8 @@ const initialCartState: CartState = {
   changed: true,
 };
 
-const availableCartSlice = createSlice({
-  name: "availableCart",
+const favouriteCartSlice = createSlice({
+  name: "favouriteCart",
   initialState: initialCartState,
   reducers: {
     updateData(
@@ -20,9 +20,9 @@ const availableCartSlice = createSlice({
     ) {
       state.itemList = action.payload.itemList;
     },
-    addToCart(state: CartState, action: PayloadAction<{ item: Restaurant }>) {
+    addToCart(state: CartState, action: PayloadAction<Restaurant>) {
       state.changed = true;
-      state.itemList.push(action.payload.item);
+      state.itemList.push(action.payload);
     },
     removeFromCart(state: CartState, action: PayloadAction<{ id: number }>) {
       state.changed = true;
@@ -33,6 +33,6 @@ const availableCartSlice = createSlice({
   },
 });
 
-export const availableCartActions = availableCartSlice.actions
+export const favouriteCartActions = favouriteCartSlice.actions
 
-export default availableCartSlice;
+export default favouriteCartSlice;

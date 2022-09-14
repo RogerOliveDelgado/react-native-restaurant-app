@@ -11,3 +11,11 @@ export type CartState = {
   itemList: Restaurant[];
   changed: boolean;
 };
+
+export type AlertState = {
+  mainAlert: number,
+  bookingsAlert: number,
+  notificationsAlert: number,
+  settingsAlert: number,
+  profileAlert: number,
+}

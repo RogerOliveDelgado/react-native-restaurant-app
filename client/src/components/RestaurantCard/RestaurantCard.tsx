@@ -6,20 +6,25 @@ import { Restaurant } from "../../interfaces/RestaurantEntity";
 import { styles } from "./RestaurantCardStyles";
 import { useAppDispatch } from "../../store/hooks";
 import { favouriteCartActions } from "../../store/slices/favouriteCart-slice";
+import { alertsActions } from '../../store/slices/alerts-slice';
 
 type CardsComponentsProps = {};
 
 const isFavourite = true;
 
-const RestaurantCard: React.FunctionComponent<Restaurant> = (
+const RestaurantCard = (
   restaurant: Restaurant
 ) => {
   const { id, rating, name, type, tables_available, location } = restaurant;
   const dispatch = useAppDispatch();
   const addToFavourites = () => {
     //need to redefine dispatch type
-    dispatch(favouriteCartActions.addToCart({ item: restaurant }));
+    dispatch(favouriteCartActions.addToCart(restaurant));
   };
+
+  const handleReservation = () => {
+    dispatch(alertsActions.updateAlert("bookingsAlert"))
+  }
 
   return (
     <>
@@ -63,6 +68,7 @@ const RestaurantCard: React.FunctionComponent<Restaurant> = (
                 title=""
               />
               <Button
+                onPress={handleReservation}
                 icon={<Ionicons name="cart" color="black" size={26} />}
                 buttonStyle={{
                   backgroundColor: isFavourite ? "#17eb13ca" : "transparent",

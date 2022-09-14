@@ -14,7 +14,8 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { BottomTabNavigator } from "./BottomTabNavigator";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { MainScreen } from "../components/Navigation/Main";
-import { Button, Icon } from "@rneui/themed";
+import { Badge, Button, Icon } from "@rneui/themed";
+import { useAppSelector } from "../store/hooks";
 
 const Drawer = createDrawerNavigator();
 
@@ -68,6 +69,9 @@ const RightMenuComponent = () => {
 };
 
 const LateralMenuContent = ({ navigation }: DrawerContentComponentProps) => {
+
+  const bookinsAlerts = useAppSelector((state) => state.alerts.bookingsAlert);
+
   return (
     <DrawerContentScrollView>
       <View style={styles.avatarContainer}>
@@ -85,11 +89,16 @@ const LateralMenuContent = ({ navigation }: DrawerContentComponentProps) => {
             ...styles.menuBtn,
             flexDirection: "row",
           }}
-          onPress={() => navigation.navigate("BottomTabNavigator")}
+          onPress={() => {
+            navigation.navigate("BottomTabNavigator")}}
         >
-          <Ionicons name="compass-outline" size={26} color="black" />
+          <View style={styles.lateralMenuIconContainer}>
+            <Ionicons name="compass-outline" size={26} color="black" />
+            <Badge containerStyle={styles.badge} value="10" status="error" />
+          </View>
           <Text style={styles.lateralMenuText}>Main</Text>
         </TouchableOpacity>
+        
         <TouchableOpacity
           style={{
             ...styles.menuBtn,
@@ -97,7 +106,10 @@ const LateralMenuContent = ({ navigation }: DrawerContentComponentProps) => {
           }}
           onPress={() => navigation.navigate("Bookings")}
         >
-          <Ionicons name="calendar-outline" size={26} color="black" />
+          <View style={styles.lateralMenuIconContainer}>
+            <Ionicons name="calendar-outline" size={26} color="black" />
+            <Badge containerStyle={styles.badge} value={bookinsAlerts} status="error" />
+          </View>
           <Text style={styles.lateralMenuText}>Bookings</Text>
         </TouchableOpacity>
 
@@ -108,7 +120,10 @@ const LateralMenuContent = ({ navigation }: DrawerContentComponentProps) => {
           }}
           onPress={() => navigation.navigate("Notifications")}
         >
-          <Ionicons name="chatbox-ellipses-outline" size={26} color="black" />
+          <View style={styles.lateralMenuIconContainer}>
+            <Ionicons name="calendar-outline" size={26} color="black" />
+            <Badge containerStyle={styles.badge} value="42" status="error" />
+          </View>
           <Text style={styles.lateralMenuText}>Notifications</Text>
         </TouchableOpacity>
 
@@ -119,7 +134,10 @@ const LateralMenuContent = ({ navigation }: DrawerContentComponentProps) => {
           }}
           onPress={() => navigation.navigate("Settings")}
         >
-          <Ionicons name="settings-outline" size={26} color="black" />
+          <View style={styles.lateralMenuIconContainer}>
+            <Ionicons name="settings-outline" size={26} color="black" />
+            <Badge containerStyle={styles.badge} value="3" status="error" />
+          </View>
           <Text style={styles.lateralMenuText}>Settings</Text>
         </TouchableOpacity>
 
@@ -130,7 +148,10 @@ const LateralMenuContent = ({ navigation }: DrawerContentComponentProps) => {
           }}
           onPress={() => navigation.navigate("Profile")}
         >
-          <Ionicons name="person-circle-outline" size={26} color="black" />
+          <View style={styles.lateralMenuIconContainer}>
+            <Ionicons name="person-circle-outline" size={26} color="black" />
+            <Badge containerStyle={styles.badge} value="1" status="error" />
+          </View>
           <Text style={styles.lateralMenuText}>Profile</Text>
         </TouchableOpacity>
       </View>
@@ -155,10 +176,18 @@ const styles = StyleSheet.create({
   },
   menuContainer: {
     marginVertical: 30,
-    marginHorizontal: 50,
+    marginHorizontal: 30,
   },
   lateralMenuText: {
     marginLeft: 15,
+  },
+  lateralMenuIconContainer: {
+    padding: 10,
+  },
+  badge: {
+    position: "absolute",
+    top: 5,
+    left: 5,
   },
 });
 
