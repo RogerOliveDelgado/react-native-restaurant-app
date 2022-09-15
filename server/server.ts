@@ -19,4 +19,4 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
 });
 
-module.exports = app;
+export default app

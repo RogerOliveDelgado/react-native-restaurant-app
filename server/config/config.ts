@@ -56,5 +56,5 @@ const CONFIG: GenericConfig = {
   },
 };
 
-module.exports = CONFIG[ENV];
+export default CONFIG[ENV];
 
