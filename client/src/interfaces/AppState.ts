@@ -12,10 +12,11 @@ export type CartState = {
   changed: boolean;
 };
 
-export type AlertState = {
-  mainAlert: number,
-  bookingsAlert: number,
-  notificationsAlert: number,
-  settingsAlert: number,
-  profileAlert: number,
-}
+export type AlertType =
+  | "main"
+  | "bookings"
+  | "notifications"
+  | "settings"
+  | "profile"
+
+export type AlertState = Record<AlertType, number>;

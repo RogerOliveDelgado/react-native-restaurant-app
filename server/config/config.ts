@@ -1,5 +1,6 @@
+import { Config, GenericConfig } from '../types/config';
 const dotenv = require("dotenv")
-const logger = require("loglevel")
+import * as logger from 'loglevel'
 
 dotenv.config();
 
@@ -7,7 +8,7 @@ const ENV = process.env.NODE_ENV || "development";
 
 logger.enableAll();
 
-const CONFIG = {
+const CONFIG: GenericConfig = {
   production: {
     app: {
       PORT: process.env.PORT || 4000,
@@ -56,3 +57,4 @@ const CONFIG = {
 };
 
 module.exports = CONFIG[ENV];
+

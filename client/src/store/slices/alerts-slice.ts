@@ -6,15 +6,15 @@ import { AlertState} from '../../interfaces/AppState';
 
 //We should call the API/backend to carry the information
 const initialAlertState: AlertState = {
-  mainAlert: 2,
-  bookingsAlert: 0,
-  notificationsAlert: 17,
-  settingsAlert: 9,
-  profileAlert: 0,
+  main: 2,
+  bookings: 0,
+  notifications: 17,
+  settings: 9,
+  profile: 0,
 };
 
 const alertsSlice = createSlice({
-  name: "availableCart",
+  name: "alerts",
   initialState: initialAlertState,
   reducers: {
     updateAlert(state: AlertState, action: PayloadAction<keyof AlertState>){

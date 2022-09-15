@@ -23,7 +23,7 @@ const RestaurantCard = (
   };
 
   const handleReservation = () => {
-    dispatch(alertsActions.updateAlert("bookingsAlert"))
+    dispatch(alertsActions.updateAlert("bookings"))
   }
 
   return (
